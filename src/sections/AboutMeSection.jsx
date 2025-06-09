@@ -1,8 +1,16 @@
-import { OutlinedButton, IconButton } from '../components/Button';
+import { OutlinedButton, ImageButton } from '../components/Button';
 
 export default function AboutMeSection() {
     const openResume = () => {
         window.open('/resume.pdf', '_blank');
+    }
+
+    const goToCode = () => {
+        window.open('https://github.com/ArmandoBerlanga', '_blank');
+    }
+
+    const goToLinkedIn = () => {
+        window.open('https://www.linkedin.com/in/armandoberlanga', '_blank');
     }
 
     return (
@@ -40,8 +48,8 @@ export default function AboutMeSection() {
                     Resume
                 </OutlinedButton>
 
-                <IconButton icon='code' />
-                <IconButton icon='link' />
+                <ImageButton src='src/assets/github.svg' alt='GitHub' onClick={goToCode} />
+                <ImageButton src='src/assets/linkedin.svg' alt='LinkedIn' onClick={goToLinkedIn} />
             </div>
         </section>
     );

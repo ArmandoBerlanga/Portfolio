@@ -31,6 +31,21 @@ export function IconButton({ icon, onClick, disabled = false, fontSize = "1rem",
 }
 
 
+export function ImageButton({ src, alt, onClick, disabled = false, className = "", type = "button" }) {
+    const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary';
+    return (
+        <button
+            type={type}
+            disabled={disabled}
+            onClick={onClick}
+            className={`bg-primary text-white p-2 shadow-lg rounded-lg hover:bg-primary/80 transition duration-300 flex items-center justify-center cursor-pointer ${className} ${disabledClasses}`}
+        >
+            <img src={src} alt={alt} className="w-6 h-6 rounded-md inline-block object-cover" />
+        </button>
+    );
+}
+
+
 export function NegativeButton({ children, onClick, disabled = false, className = "", type = "button" }) {
     const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-negative';
     return (
