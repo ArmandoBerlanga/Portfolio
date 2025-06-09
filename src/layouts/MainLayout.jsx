@@ -36,7 +36,7 @@ export default function MainLayout() {
                 </div>
             </header>
 
-            <main className="flex flex-grow flex-col justify-center bg-dark text-white px-32 text-left">
+            <main className="flex flex-grow flex-col justify-center bg-dark text-white px-48 text-left">
                 <Outlet />
             </main>
 

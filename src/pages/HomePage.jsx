@@ -6,12 +6,12 @@ import ProjectsSection from '../sections/ProjectsSection';
 
 export default function HomePage() {
     return (
-        <>
+        <div id='home-page' className='flex flex-col space-y-20 pt-20'>
             <AboutMeSection />
             <ExperienceSection />
             <EducationSection />
             <ProjectsSection />
             <ContactSection />
-        </>
+        </div>
     );
 }
