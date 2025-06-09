@@ -73,3 +73,16 @@ export function PlainButton({ children, onClick, disabled = false, className = "
         </button>
     );
 }
+
+export function OutlinedButton({ children, onClick, disabled = false, className = "", type = "button" }) {
+    return (
+        <button
+            type={type}
+            disabled={disabled}
+            onClick={onClick}
+            className={`border-2 border-primary text-primary p-2 rounded-lg hover:bg-primary/20 transition duration-300 flex items-center justify-center cursor-pointer ${className}`}
+        >
+            {children}
+        </button>
+    );
+}

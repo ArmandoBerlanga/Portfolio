@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 export default function MainLayout() {
     return (
         <div className="flex flex-col min-h-screen">
-            <header className="bg-primary text-white px-2.5 py-2 flex flex-row items-center justify-between">
+            <header className="bg-dark text-white px-6 py-2 flex flex-row items-center justify-between">
                 <div className="flex items-center justify-between">
                     <img src="src/assets/me.png" alt="Armando Berlanga" className="w-8 h-8 rounded-xl inline-block mr-2 object-cover" />          
                     <h1 className="font-bold">Armando Berlanga</h1>
@@ -27,11 +27,11 @@ export default function MainLayout() {
                 </div>
             </header>
 
-            <main className="flex-grow bg-primary">
+            <main className="flex-grow bg-dark">
                 <Outlet />
             </main>
 
-            <footer className="bg-primary p-2.5">Footer Content</footer>
+            <footer className="bg-dark px-6 py-2"></footer>
         </div>
     );
 }

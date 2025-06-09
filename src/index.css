@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-    --primary: #232931;
+    --primary: #a62de3;
+    --dark: #232931;
     --secondary: #d7dce1;
     --positive: #4caf50;
     --negative: #f44336;
@@ -10,6 +11,7 @@
 
 @theme {
     --color-primary: var(--primary);
+    --color-dark: var(--dark);
     --color-secondary: var(--secondary);
     --color-positive: var(--positive);
     --color-negative: var(--negative);
