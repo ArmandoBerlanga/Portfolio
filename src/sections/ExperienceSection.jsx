@@ -49,7 +49,8 @@ export default function ExperienceSection() {
 
     return (
         <section id="experience">
-            <h1 className='text-4xl text-primary mb-6'>Job Experience</h1>
+            <h1 className='text-4xl text-primary/80 mb-4'>Job Experience</h1>
+
             <div className="experience-tabs w-full flex flex-col items-center">
                 <div className="tab-list flex flex-wrap gap-2 mb-2 w-full justify-center">
                     {jobs.map((job, idx) => (
@@ -57,19 +58,24 @@ export default function ExperienceSection() {
                             {job.company}
                         </Button>
                     ))}
+
                 </div>
+
                 <div className="tab-panel w-full">
-                    <div className="job-item p-4 border border-gray-700 rounded-lg w-full">
-                        <h2 className='text-2xl mb-2'>{jobs[currentIndex].title}</h2>
-                        <h3 className='text-xl mb-1'>{jobs[currentIndex].company} - {jobs[currentIndex].type}</h3>
-                        <p className='text-lg mb-1'>{jobs[currentIndex].location}</p>
+                    <div className="job-item p-4 bg-gray-800 border border-gray-700 rounded-lg w-full">
+                        <h2 className='text-2xl mb-2 text-primary'>{jobs[currentIndex].title}</h2>
+
+                        <h3 className='text-lg mb-1'>{jobs[currentIndex].type} - {jobs[currentIndex].location}</h3>
+
                         <p className='text-lg text-gray-400 mb-4'>
                             {jobs[currentIndex].startDate} - {jobs[currentIndex].endDate}
                         </p>
+
                         <p className='mb-4'>{jobs[currentIndex].description}</p>
+
                         <div className="technologies flex flex-wrap gap-2">
                             {jobs[currentIndex].technologies.map((tech, techIndex) => (
-                                <span key={techIndex} className='bg-gray-800 text-white px-3 py-1 rounded-full text-sm'>
+                                <span key={techIndex} className='bg-gray-700 text-white px-3 py-1 rounded-full text-sm'>
                                     {tech}
                                 </span>
                             ))}

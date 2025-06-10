@@ -17,3 +17,8 @@
     --color-negative: var(--negative);
     --color-warning: var(--warning);
 }
+
+main {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.121) 5%, transparent 0);
+    background-size: 30px 30px;
+}
