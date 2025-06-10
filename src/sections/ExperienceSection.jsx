@@ -7,7 +7,7 @@ export default function ExperienceSection() {
 
     return (
         <section id="experience" className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500">
-            <h1 className='text-4xl md:text-5xl font-extrabold text-primary/90 mb-10 text-center tracking-tight drop-shadow-sm'>Job Experience</h1>
+            <h2 className='text-4xl md:text-5xl font-extrabold text-primary/90 mb-10 text-center tracking-tight drop-shadow-sm'>Job Experience</h2>
 
             <div className="experience-tabs w-full flex flex-col items-center max-w-4xl mx-auto px-4 md:px-0">
                 <div className="tab-list flex flex-wrap gap-3 mb-6 w-full justify-center">

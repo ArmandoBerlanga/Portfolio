@@ -3,7 +3,7 @@ import { certsTypes } from "../config/certifications";
 export default function CertificationsSection() {
     return (
         <section id="certifications" className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500">
-            <h1 className='text-4xl md:text-5xl font-extrabold text-primary/90 mb-10 text-center tracking-tight drop-shadow-sm'>Certifications</h1>
+            <h2 className='text-4xl md:text-5xl font-extrabold text-primary/90 mb-10 text-center tracking-tight drop-shadow-sm'>Certifications</h2>
 
             <div className="certification-types grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto px-4 md:px-0">
                 {Object.entries(certsTypes).map(([type, items]) => (
