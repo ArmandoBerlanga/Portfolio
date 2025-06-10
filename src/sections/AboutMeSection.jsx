@@ -14,7 +14,7 @@ export default function AboutMeSection() {
     }
 
     return (
-        <section id="about-me" className="py-20 bg-gradient-to-br from-white via-slate-50 to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500">
+        <section id="about-me" className="py-20 bg-gradient-to-br from-white via-slate-50 to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500 rounded-2xl">
             <div className="about-me-content flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-6 md:px-12">
                 <div className="about-me-description md:mr-20 flex-1 mb-10 md:mb-0">
                     <h1 className='text-5xl md:text-6xl font-extrabold mb-6 opacity-80 leading-tight tracking-tight'>Hi, I'm <span className='text-primary drop-shadow-md'>Armando Berlanga</span>!</h1>
