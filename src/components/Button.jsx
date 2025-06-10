@@ -1,101 +1,11 @@
-
-export function Button({ children, onClick, disabled = false, className = "", type = "button" }) {
-    const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary';
+export function Button({ children, active, onClick }) {
     return (
         <button
-            type={type}
-            disabled={disabled}
+            className={`px-4 py-2 rounded-t-lg border-b-2 transition-colors duration-200 cursor-pointer ${active
+                ? 'border-primary text-primary bg-primary/10 font-bold'
+                : 'border-transparent text-gray-400 bg-gray-800 hover:text-primary'
+            }`}
             onClick={onClick}
-            className={`bg-primary text-white p-2 shadow-lg rounded-lg hover:bg-primary/80 transition duration-300 flex items-center justify-center cursor-pointer ${className} ${disabledClasses}`}
-        >
-            {children}
-        </button>
-    );
-}
-
-
-export function IconButton({ icon, onClick, disabled = false, fontSize = "1rem", className = "", type = "button" }) {
-    const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary';
-    return (
-        <button
-            type={type}
-            disabled={disabled}
-            onClick={onClick}
-            className={`bg-primary text-white p-2 shadow-lg rounded-lg hover:bg-primary/80 transition duration-300 flex items-center justify-center cursor-pointer ${className} ${disabledClasses}`}
-        >
-            <span className="material-icons" style={{ fontSize }}>
-                {icon}
-            </span>
-        </button>
-    );
-}
-
-
-export function ImageButton({ src, alt, onClick, disabled = false, className = "", type = "button" }) {
-    const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary';
-    return (
-        <button
-            type={type}
-            disabled={disabled}
-            onClick={onClick}
-            className={`bg-primary text-white p-2 shadow-lg rounded-lg hover:bg-primary/80 transition duration-300 flex items-center justify-center cursor-pointer ${className} ${disabledClasses}`}
-        >
-            <img src={src} alt={alt} className="w-6 h-6 rounded-md inline-block object-cover" />
-        </button>
-    );
-}
-
-
-export function NegativeButton({ children, onClick, disabled = false, className = "", type = "button" }) {
-    const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-negative';
-    return (
-        <button
-            type={type}
-            disabled={disabled}
-            onClick={onClick}
-            className={`bg-negative text-white p-2 shadow-lg rounded-lg hover:bg-negative/80 transition duration-300 flex items-center justify-center cursor-pointer ${className} ${disabledClasses}`}
-        >
-            {children}
-        </button>
-    );
-}
-
-export function NegativeIconButton({ icon, onClick, disabled = false, fontSize = "1rem", className = "", type = "button" }) {
-    const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-negative';
-    return (
-        <button
-            type={type}
-            disabled={disabled}
-            onClick={onClick}
-            className={`bg-negative text-white p-2 shadow-lg rounded-lg hover:bg-negative/80 transition duration-300 flex items-center justify-center cursor-pointer ${className} ${disabledClasses}`}
-        >
-            <span className="material-icons" style={{ fontSize }}>
-                {icon}
-            </span>
-        </button>
-    );
-}
-
-export function PlainButton({ children, onClick, disabled = false, className = "", type = "button" }) {
-    return (
-        <button
-            type={type}
-            disabled={disabled}
-            onClick={onClick}
-            className={`border-primary text-primary p-2 rounded-lg hover:bg-primary/20 transition duration-300 flex items-center justify-center cursor-pointer ${className}`}
-        >
-            {children}
-        </button>
-    );
-}
-
-export function OutlinedButton({ children, onClick, disabled = false, className = "", type = "button" }) {
-    return (
-        <button
-            type={type}
-            disabled={disabled}
-            onClick={onClick}
-            className={`border-2 border-primary text-primary p-2 rounded-lg hover:bg-primary/20 transition duration-300 flex items-center justify-center cursor-pointer ${className}`}
         >
             {children}
         </button>

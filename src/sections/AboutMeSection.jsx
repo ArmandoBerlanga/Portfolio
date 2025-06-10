@@ -1,4 +1,4 @@
-import { OutlinedButton, ImageButton } from '../components/Button';
+import { Button } from "../components/Button";
 
 export default function AboutMeSection() {
     const openResume = () => {
@@ -44,12 +44,15 @@ export default function AboutMeSection() {
             </div>
 
             <div className="about-me-go-to flex space-x-1">
-                <OutlinedButton className='text-white' onClick={openResume}>
+                <Button onClick={openResume}>
                     Resume
-                </OutlinedButton>
-
-                <ImageButton src='src/assets/github.svg' alt='GitHub' onClick={goToCode} />
-                <ImageButton src='src/assets/linkedin.svg' alt='LinkedIn' onClick={goToLinkedIn} />
+                </Button>
+                <Button onClick={goToCode}>
+                    <img src="src/assets/github.svg" alt="GitHub" className="w-6 h-6 rounded-sm inline-block" />
+                </Button>
+                <Button onClick={goToLinkedIn}>
+                    <img src="src/assets/linkedin.svg" alt="LinkedIn" className="w-6 h-6 rounded-md inline-block" />
+                </Button>
             </div>
         </section>
     );
