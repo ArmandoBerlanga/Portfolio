@@ -14,7 +14,7 @@ export default function MainLayout() {
         <div className="flex flex-col min-h-screen">
             <header className="bg-dark/90 backdrop-blur-md text-white px-6 py-3 flex flex-row items-center justify-between sticky top-0 z-50 shadow-lg border-b border-primary/10">
                 <div className="flex items-center gap-3">
-                    <img src="src/assets/me.png" alt="Armando Berlanga" className="w-10 h-10 rounded-2xl object-cover border-2 border-primary/30 shadow-md" />
+                    <img src="me.png" alt="Armando Berlanga" className="w-10 h-10 rounded-2xl object-cover border-2 border-primary/30 shadow-md" />
                     <h1 className="font-bold text-lg md:text-xl tracking-tight text-primary drop-shadow-sm">Armando Berlanga</h1>
                 </div>
 

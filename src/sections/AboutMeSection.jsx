@@ -31,18 +31,18 @@ export default function AboutMeSection() {
                     </p>
 
                     <div className="stack flex flex-wrap gap-3 mt-6">
-                        <img src="src/assets/stack/net.svg" alt=".NET" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="src/assets/stack/python.png" alt="Python" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="src/assets/stack/vue.jpg" alt="VueJS" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="src/assets/stack/react.png" alt="React" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="src/assets/stack/azure.jpeg" alt="Azure" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="src/assets/stack/gcp.png" alt="GCP" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/net.svg" alt=".NET" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/python.png" alt="Python" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/vue.jpg" alt="VueJS" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/react.png" alt="React" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/azure.jpeg" alt="Azure" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/gcp.png" alt="GCP" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
                     </div>
                 </div>
 
                 <div className="flex-1 flex justify-center items-center">
                     <div className="relative group">
-                        <img src="src/assets/me.png" alt="Armando Berlanga" className="w-64 h-64 md:w-80 md:h-80 rounded-3xl shadow-2xl object-cover border-4 border-primary/30 group-hover:scale-105 transition-transform duration-300" />
+                        <img src="me.png" alt="Armando Berlanga" className="w-64 h-64 md:w-80 md:h-80 rounded-3xl shadow-2xl object-cover border-4 border-primary/30 group-hover:scale-105 transition-transform duration-300" />
                         <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs px-4 py-1 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">Let's connect!</div>
                     </div>
                 </div>
@@ -53,10 +53,10 @@ export default function AboutMeSection() {
                     Resume
                 </Button>
                 <Button onClick={goToCode} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-md p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                    <img src="src/assets/github.svg" alt="GitHub" className="w-6 h-6" />
+                    <img src="github.svg" alt="GitHub" className="w-6 h-6" />
                 </Button>
                 <Button onClick={goToLinkedIn} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-md p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                    <img src="src/assets/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
+                    <img src="linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
                 </Button>
             </div>
         </section>
