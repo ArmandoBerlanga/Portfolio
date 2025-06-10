@@ -7,7 +7,7 @@ import ProjectsSection from '../sections/ProjectsSection';
 
 export default function HomePage() {
     return (
-        <div id='home-page' className='flex flex-col pt-10'>
+        <div id='home-page' className='flex flex-col py-10'>
             <AboutMeSection />
             <div className="separator bg-primary my-5"></div>
             <ExperienceSection />
