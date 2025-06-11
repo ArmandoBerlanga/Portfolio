@@ -40,9 +40,6 @@ export default function MainLayout() {
                             ))}
                         </ul>
                     </nav>
-                    <button className="ml-2 p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors" title="Toggle theme">
-                        <span className="material-icons text-primary text-2xl align-middle">contrast</span>
-                    </button>
                 </div>
 
                 {/* Hamburger for mobile & mid-size */}
@@ -87,9 +84,6 @@ export default function MainLayout() {
                                     ))}
                                 </ul>
                             </nav>
-                            <button className="mt-8 p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors self-center" title="Toggle theme">
-                                <span className="material-icons text-primary text-2xl align-middle">contrast</span>
-                            </button>
                         </div>
                     </div>
                 )}
