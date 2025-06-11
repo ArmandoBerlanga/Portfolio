@@ -1,16 +1,9 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function MainLayout() {
-    const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
-
-    const getActiveSection = () => {
-        if (location.hash) return location.hash;
-        return "#about-me";
-    };
-
-    const activeSection = getActiveSection();
+    const [activeSection, setActiveSection] = useState("#about-me");
 
     const navLinks = [
         { href: "#about-me", label: "About Me" },
@@ -20,6 +13,23 @@ export default function MainLayout() {
         { href: "#projects", label: "Projects" },
         { href: "#contact", label: "Contact" },
     ];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const offsets = navLinks.map(link => {
+                const el = document.querySelector(link.href);
+                if (!el) return { href: link.href, top: Infinity };
+
+                const rect = el.getBoundingClientRect();
+                return { href: link.href, top: Math.abs(rect.top) };
+            });
+            const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
+            setActiveSection(closest.href);
+        };
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <div className="flex flex-col min-h-screen">
