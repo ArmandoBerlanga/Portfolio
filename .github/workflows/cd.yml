@@ -47,6 +47,6 @@ jobs:
                 docker stop portfolio || true
                 docker rm portfolio || true
                 docker pull ${{ secrets.REGISTRY_URL }}/portfolio:${{ steps.vars.outputs.TAG }}
-                docker run -d -p 7093:8080 --name portfolio ${{ secrets.REGISTRY_URL }}/portfolio:${{ steps.vars.outputs.TAG }}
+                docker run -d -p 7093:8080 --restart unless-stopped --name portfolio ${{ secrets.REGISTRY_URL }}/portfolio:${{ steps.vars.outputs.TAG }}
                 docker system prune -f
                 docker image prune -f
