@@ -18,7 +18,7 @@ export default function ProjectsSection() {
                             ))}
                         </div>
                         {project.image && (
-                            <img src={project.image} alt={project.title} className="w-full h-90 object-cover rounded-xl mt-1 border border-primary/20 shadow-md bg-white dark:bg-slate-900" />
+                            <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-xl mt-1 border border-primary/20 shadow-md bg-white dark:bg-slate-900" />
                         )}
                     </div>
                 ))}
