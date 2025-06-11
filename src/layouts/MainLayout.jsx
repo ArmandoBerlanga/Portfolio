@@ -1,7 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 export default function MainLayout() {
     const location = useLocation();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const getActiveSection = () => {
         if (location.hash) return location.hash;
@@ -9,6 +11,15 @@ export default function MainLayout() {
     };
 
     const activeSection = getActiveSection();
+
+    const navLinks = [
+        { href: "#about-me", label: "About Me" },
+        { href: "#experience", label: "Experience" },
+        { href: "#education", label: "Education" },
+        { href: "#certifications", label: "Certifications" },
+        { href: "#projects", label: "Projects" },
+        { href: "#contact", label: "Contact" },
+    ];
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -18,21 +29,70 @@ export default function MainLayout() {
                     <h1 className="font-bold text-lg md:text-xl tracking-tight text-primary drop-shadow-sm">Armando Berlanga</h1>
                 </div>
 
-                <div className="flex items-center gap-6">
+                {/* Desktop nav */}
+                <div className="hidden md:flex items-center gap-4">
                     <nav>
-                        <ul className="flex space-x-2 md:space-x-6 text-base md:text-lg font-medium">
-                            <li><a href="#about-me" className={`px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === "#about-me" ? "bg-primary/20 text-primary font-bold" : "text-white"}`}>About Me</a></li>
-                            <li><a href="#experience" className={`px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === "#experience" ? "bg-primary/20 text-primary font-bold" : "text-white"}`}>Experience</a></li>
-                            <li><a href="#education" className={`px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === "#education" ? "bg-primary/20 text-primary font-bold" : "text-white"}`}>Education</a></li>
-                            <li><a href="#certifications" className={`px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === "#certifications" ? "bg-primary/20 text-primary font-bold" : "text-white"}`}>Certifications</a></li>
-                            <li><a href="#projects" className={`px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === "#projects" ? "bg-primary/20 text-primary font-bold" : "text-white"}`}>Projects</a></li>
-                            <li><a href="#contact" className={`px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === "#contact" ? "bg-primary/20 text-primary font-bold" : "text-white"}`}>Contact</a></li>
+                        <ul className="flex space-x-2 text-base font-medium">
+                            {navLinks.map(link => (
+                                <li key={link.href}>
+                                    <a href={link.href} className={`px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === link.href ? "bg-primary/20 text-primary font-bold" : "text-white"}`}>{link.label}</a>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                     <button className="ml-2 p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors" title="Toggle theme">
                         <span className="material-icons text-primary text-2xl align-middle">contrast</span>
                     </button>
                 </div>
+
+                {/* Hamburger for mobile & mid-size */}
+                <div className="md:hidden flex items-center">
+                    <button
+                        className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors focus:outline-none"
+                        title="Open menu"
+                        aria-label="Open menu"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+                        <span className="material-icons text-primary text-2xl align-middle">menu</span>
+                    </button>
+                </div>
+
+                {/* Mobile menu overlay */}
+                {menuOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center md:hidden bg-black/30">
+                        <div className="fixed left-1/2 top-10 transform -translate-x-1/2 bg-dark/95 w-11/12 max-w-xs shadow-lg p-6 flex flex-col gap-8 animate-slide-in rounded-xl items-center">
+                            <div className="relative flex items-center mb-4 w-full">
+                                <span className="font-bold text-2xl text-primary mx-auto">Menu</span>
+                                <button
+                                    className="absolute right-0 p-2 rounded-lg hover:bg-primary/10 transition-colors"
+                                    title="Close menu"
+                                    aria-label="Close menu"
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    <span className="material-icons text-primary text-2xl align-middle">close</span>
+                                </button>
+                            </div>
+                            <nav className="w-full">
+                                <ul className="flex flex-col gap-4 text-lg font-medium items-center w-full">
+                                    {navLinks.map(link => (
+                                        <li key={link.href} className="w-full">
+                                            <a
+                                                href={link.href}
+                                                className={`block w-full text-center px-3 py-2 rounded-lg transition-colors duration-200 hover:bg-primary/10 hover:text-primary ${activeSection === link.href ? "bg-primary/20 text-primary font-bold" : "text-white"}`}
+                                                onClick={() => setMenuOpen(false)}
+                                            >
+                                                {link.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
+                            <button className="mt-8 p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors self-center" title="Toggle theme">
+                                <span className="material-icons text-primary text-2xl align-middle">contrast</span>
+                            </button>
+                        </div>
+                    </div>
+                )}
             </header>
 
             <main className="flex flex-grow flex-col justify-center bg-dark text-white px-4 md:px-16 text-left transition-colors duration-500">

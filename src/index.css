@@ -1,21 +1,29 @@
 @import "tailwindcss";
 
 :root {
-    --primary: #a62de3;
-    --dark: #232931;
-    --secondary: #d7dce1;
-    --positive: #4caf50;
-    --negative: #f44336;
-    --warning: #ff9800;
+    --primary: #3e69d4;
+    --dark: #262c37;
 }
 
 @theme {
     --color-primary: var(--primary);
     --color-dark: var(--dark);
-    --color-secondary: var(--secondary);
-    --color-positive: var(--positive);
-    --color-negative: var(--negative);
-    --color-warning: var(--warning);
+}
+
+/* ... */
+
+@keyframes slide-in {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-in {
+    animation: slide-in 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 main {
