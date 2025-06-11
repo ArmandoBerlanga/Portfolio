@@ -1,0 +1,41 @@
+name: continuous-deployment
+run-name: CD - New Deployment by ${{ github.actor }}
+
+on:
+    push:
+        branches: [main, develop]
+
+jobs:
+    build:
+        name: Server Deployment
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: SSH Stage Deployment
+              if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_PV_KEY }}
+                  script: |
+                      cd ${{ vars.STAGE_PROJECT_PATH }}
+                      git pull origin develop
+                      docker-compose -f docker-compose.stage.yml -p inventorymanagement-stage down --remove-orphans
+                      docker-compose -f docker-compose.stage.yml -p inventorymanagement-stage up -d --build
+
+            - name: SSH Production Deployment
+              if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_PV_KEY }}
+                  script: |
+                      cd ${{ vars.PROJECT_PATH }}
+                      git pull origin main
+                      docker-compose -f docker-compose.prod.yml -p inventorymanagement-production down --remove-orphans
+                      docker-compose -f docker-compose.prod.yml -p inventorymanagement-production up -d --build
