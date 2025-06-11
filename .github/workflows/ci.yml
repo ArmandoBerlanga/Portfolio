@@ -24,9 +24,14 @@ jobs:
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PWD }}
 
-      - name: Extract tag from branch
+      - name: Extract tag from PR number
         id: vars
-        run: echo "TAG=$(echo ${{ github.head_ref || github.ref_name }} | tr '/' '-')" >> $GITHUB_OUTPUT
+        run: |
+          if [ -n "${{ github.event.pull_request.number }}" ]; then
+            echo "TAG=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          else
+            echo "TAG=latest" >> $GITHUB_OUTPUT
+          fi
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
