@@ -43,7 +43,6 @@ jobs:
             host: ${{ secrets.SSH_HOST }}
             username: ${{ secrets.SSH_USER }}
             key: ${{ secrets.SSH_PV_KEY }}
-            passphrase: ${{ secrets.SSH_PASSPHRASE }}
             script: |
                 docker stop portfolio || true
                 docker rm portfolio || true
