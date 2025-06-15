@@ -52,11 +52,11 @@ export default function AboutMeSection() {
                 <Button onClick={openResume} className="px-6 py-3 text-lg font-semibold bg-primary rounded-lg shadow-md transition-colors">
                     Resume
                 </Button>
-                <Button onClick={goToCode} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-md p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                    <img src="github.svg" alt="GitHub" className="w-6 h-6" />
+                <Button onClick={goToCode}>
+                    <img src="github.webp" alt="GitHub" className="w-6 h-6 object-cover rounded-full" />
                 </Button>
-                <Button onClick={goToLinkedIn} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-md p-3 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                    <img src="linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
+                <Button onClick={goToLinkedIn}>
+                    <img src="linkedin.webp" alt="LinkedIn" className="w-6 h-6 object-cover rounded-full" />
                 </Button>
             </div>
         </section>
