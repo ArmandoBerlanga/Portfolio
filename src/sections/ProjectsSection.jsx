@@ -24,13 +24,8 @@ export default function ProjectsSection() {
                                 <span key={i} className="bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full text-xs shadow-sm border border-primary/20">{skill}</span>
                             ))}
                         </div>
-                        {/* Gallery for project images */}
                         {project.images && project.images.length > 0 && (
                             <Gallery images={project.images} alt={project.title} />
-                        )}
-                        {/* Fallback for old single image */}
-                        {!project.images && project.image && (
-                            <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-xl mt-1 border border-primary/20 shadow-md bg-white dark:bg-slate-900" />
                         )}
                     </div>
                 ))}
