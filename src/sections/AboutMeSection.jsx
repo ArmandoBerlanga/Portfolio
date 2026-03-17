@@ -2,19 +2,19 @@ import { Button } from "../components/Button";
 
 export default function AboutMeSection() {
     const openResume = () => {
-        window.open('/resume.pdf', '_blank');
+        window.open('/resume.pdf', '_blank', 'noopener,noreferrer');
     }
 
     const goToCode = () => {
-        window.open('https://github.com/ArmandoBerlanga', '_blank');
+        window.open('https://github.com/ArmandoBerlanga', '_blank', 'noopener,noreferrer');
     }
 
     const goToLinkedIn = () => {
-        window.open('https://www.linkedin.com/in/armandoberlanga', '_blank');
+        window.open('https://www.linkedin.com/in/armandoberlanga', '_blank', 'noopener,noreferrer');
     }
 
     return (
-        <section id="about-me" className="py-20 bg-gradient-to-br from-white via-slate-50 to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500 rounded-2xl">
+        <section id="about-me" aria-label="About me and introduction" className="py-20 bg-gradient-to-br from-white via-slate-50 to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500 rounded-2xl">
             <div className="about-me-content flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-6 md:px-12">
                 <div className="about-me-description md:mr-20 flex-1 mb-10 md:mb-0">
                     <h1 className='text-5xl md:text-6xl font-extrabold mb-6 opacity-80 leading-tight tracking-tight'>Hi, I'm <span className='text-primary drop-shadow-md'>Armando Berlanga</span>!</h1>
@@ -31,18 +31,18 @@ export default function AboutMeSection() {
                     </p>
 
                     <div className="stack flex flex-wrap gap-3 mt-6">
-                        <img src="stack/net.webp" alt=".NET" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="stack/python.webp" alt="Python" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="stack/vue.webp" alt="VueJS" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="stack/react.webp" alt="React" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="stack/azure.webp" alt="Azure" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
-                        <img src="stack/gcp.webp" alt="GCP" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/net.webp" alt=".NET" width="40" height="40" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/python.webp" alt="Python" width="40" height="40" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/vue.webp" alt="VueJS" width="40" height="40" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/react.webp" alt="React" width="40" height="40" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/azure.webp" alt="Azure" width="40" height="40" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
+                        <img src="stack/gcp.webp" alt="GCP" width="40" height="40" className="w-10 h-10 rounded-xl shadow-md bg-white/80 dark:bg-slate-800/80 p-1 object-cover transition-transform hover:scale-110" />
                     </div>
                 </div>
 
                 <div className="flex-1 flex justify-center items-center">
                     <div className="relative group">
-                        <img src="me.webp" alt="Armando Berlanga" className="w-64 h-64 md:w-80 md:h-80 rounded-3xl shadow-2xl object-cover border-4 border-primary/30 group-hover:scale-105 transition-transform duration-300" />
+                        <img src="me.webp" alt="Armando Berlanga" width="320" height="320" className="w-64 h-64 md:w-80 md:h-80 rounded-3xl shadow-2xl object-cover border-4 border-primary/30 group-hover:scale-105 transition-transform duration-300" />
                         <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs px-4 py-1 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">Let's connect!</div>
                     </div>
                 </div>
@@ -53,10 +53,10 @@ export default function AboutMeSection() {
                     Resume
                 </Button>
                 <Button onClick={goToCode}>
-                    <img src="github.webp" alt="GitHub" className="w-6 h-6 object-cover rounded-full" />
+                    <img src="github.webp" alt="GitHub" width="24" height="24" className="w-6 h-6 object-cover rounded-full" />
                 </Button>
                 <Button onClick={goToLinkedIn}>
-                    <img src="linkedin.webp" alt="LinkedIn" className="w-6 h-6 object-cover rounded-full" />
+                    <img src="linkedin.webp" alt="LinkedIn" width="24" height="24" className="w-6 h-6 object-cover rounded-full" />
                 </Button>
             </div>
         </section>

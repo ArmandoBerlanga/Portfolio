@@ -16,18 +16,19 @@ export const projects = [
         ]
     },
     {
-        title: "Inventory and Point of Sales system for a Hardware Store with more than 50,000 products",
+        title: "AI-powered inventory and POS for El Faro hardware store",
         date: "Oct. 2024 - Jun. 2025",
         institution: "Self-Employed",
-        description: "Development of a web application to manage the inventory of a hardware store, covering sales, purchases, and stock control. The system also integrates with barcode scanners and receipt printers to improve transaction efficiency.",
+        description: "Development of a web application to manage the inventory of a hardware store, covering sales, purchases, and stock control. The system integrates with barcode scanners and receipt printers to improve transaction efficiency. Additionally, it includes an AI-powered module to track purchase orders and quotes for clients.",
         images: [
             "projects/elfaro.webp",
             "projects/elfaro2.webp",
-            "projects/elfaro3.webp"
+            "projects/elfaro3.webp",
+            "projects/elfaro4.webp"
         ],
         skills: [
             ".NET", "APIs", "VueJS", "Quasar", "Docker", "Web Sockets", "VPS",
-            "Cloudflare", "GitHub", "GitHub Actions", "SQL Server", 
+            "Cloudflare", "GitHub", "GitHub Actions", "SQL Server", "AI Integration", "OpenAI",
             "Go Daddy", "Hostinger", "Third-Party Integrations", "Scrum"
         ]
     },

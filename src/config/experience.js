@@ -3,11 +3,11 @@ export const jobs = [
         title: 'Senior Software Engineer',
         company: 'Slalom Build',
         type: 'Full-time',
-        location: 'Hybrid',
+        location: 'Monterrey, Nuevo León, México',
         startDate: '2024-12',
         endDate: 'Present',
-        description: 'Develop full-stack .NET 8 applications using Blazor and Azure, implementing SOLID-based backend solutions and responsive UIs with Telerik Blazor, while actively applying Scrum practices through daily standups, PR reviews, and full user story management.',
-        technologies: ['.NET', 'Blazor', 'Azure', 'Telerik Blazor', 'Scrum', 'GitHub', 'GitHub Actions', 'Docker', 'Microservices', 'APIs']
+        description: 'Contributed to architecture and development across automotive and energy industry projects. Built AI-powered RESTful APIs using Python (FastAPI) on GCP with Tekton pipelines and MongoDB. Developed full-stack applications using .NET 8, Blazor, and Azure, applying SOLID principles for maintainability and scalability. Engaged in full Scrum lifecycle activities, fostering collaboration through daily stand-ups, sprint reviews, and pull request reviews.',
+        technologies: ['Python', 'FastAPI', 'GCP', 'AI Integration', 'Tekton', 'MongoDB', '.NET 8', 'Blazor', 'Azure', 'SOLID Principles', 'Scrum', 'CI/CD']
     },
     {
         title: 'Software Engineer',

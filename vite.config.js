@@ -8,4 +8,24 @@ export default defineConfig({
         react(),
         tailwindcss()
     ],
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    'react-vendor': ['react', 'react-dom', 'react-router-dom']
+                }
+            }
+        },
+        minify: 'terser',
+        terserOptions: {
+            compress: {
+                drop_console: true,
+                drop_debugger: true
+            }
+        },
+        // Enable CSS code splitting
+        cssCodeSplit: true,
+        // Optimize chunk size
+        chunkSizeWarningLimit: 1000
+    }
 })
