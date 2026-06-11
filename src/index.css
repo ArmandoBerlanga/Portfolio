@@ -1,25 +1,218 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Raw theme tokens — light on :root, dark overrides on .dark.
+--------------------------------------------------------------------------- */
 :root {
-    --primary: #3e69d4;
-    --dark: #262c37;
+    --accent: #2e5cc5;
+    --accent-soft: #3e69d4;
+
+    --desktop-text: #1d1d1f;
+    --text-secondary: rgba(29, 29, 31, 0.65);
+    --text-tertiary: rgba(29, 29, 31, 0.45);
+
+    --window-bg: rgba(246, 246, 248, 0.97);
+    --window-bg-opaque: #f6f6f8;
+    --window-titlebar: rgba(238, 238, 241, 0.9);
+    --window-border: rgba(0, 0, 0, 0.12);
+    --window-divider: rgba(0, 0, 0, 0.08);
+
+    --menubar-bg: rgba(248, 248, 250, 0.62);
+    --dock-bg: rgba(255, 255, 255, 0.35);
+    --dock-border: rgba(255, 255, 255, 0.45);
+    --popover-bg: rgba(248, 248, 250, 0.78);
+
+    --hover-fill: rgba(0, 0, 0, 0.06);
+
+    color-scheme: light;
+}
+
+.dark {
+    --accent: #5b86e5;
+    --accent-soft: #3e69d4;
+
+    --desktop-text: #f5f5f7;
+    --text-secondary: rgba(245, 245, 247, 0.65);
+    --text-tertiary: rgba(245, 245, 247, 0.4);
+
+    --window-bg: rgba(38, 40, 48, 0.8);
+    --window-bg-opaque: #26282f;
+    --window-titlebar: rgba(48, 50, 60, 0.9);
+    --window-border: rgba(255, 255, 255, 0.14);
+    --window-divider: rgba(255, 255, 255, 0.08);
+
+    --menubar-bg: rgba(28, 28, 34, 0.55);
+    --dock-bg: rgba(40, 40, 48, 0.4);
+    --dock-border: rgba(255, 255, 255, 0.12);
+    --popover-bg: rgba(40, 42, 50, 0.8);
+
+    --hover-fill: rgba(255, 255, 255, 0.08);
+
+    color-scheme: dark;
+}
+
+@theme inline {
+    --color-accent: var(--accent);
+    --color-accent-soft: var(--accent-soft);
+    --color-primary: var(--accent); /* legacy alias used by sections */
+    --color-surface: var(--window-bg);
+    --color-titlebar: var(--window-titlebar);
+    --color-menubar: var(--menubar-bg);
+    --color-dock: var(--dock-bg);
+    --color-popover: var(--popover-bg);
+    --color-ink: var(--desktop-text);
+    --color-ink-2: var(--text-secondary);
+    --color-ink-3: var(--text-tertiary);
+    --color-hover-fill: var(--hover-fill);
 }
 
 @theme {
-    --color-primary: var(--primary);
-    --color-dark: var(--dark);
+    --color-light-red: #ff5f57;
+    --color-light-yellow: #febc2e;
+    --color-light-green: #28c840;
+
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+        "Segoe UI Variable", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        sans-serif;
+    --font-mono:
+        ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, "Cascadia Code",
+        "Roboto Mono", monospace;
+
+    --ease-mac: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-mac-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-mac-exit: cubic-bezier(0.4, 0, 1, 1);
+
+    --shadow-window:
+        0 0 0 0.5px var(--window-border), 0 12px 24px -8px rgb(0 0 0 / 0.22),
+        0 32px 64px -16px rgb(0 0 0 / 0.35);
+    --shadow-window-blur:
+        0 0 0 0.5px var(--window-border), 0 6px 16px -8px rgb(0 0 0 / 0.18);
 }
 
-/* Dark mode always enabled */
+/* Pre-React paint: match the wallpaper base so there is no white flash. */
 html {
-    background-color: #262c37;
+    background-color: #dfe6f2;
 }
 
+html.dark {
+    background-color: #0c1230;
+}
+
+html,
 body {
-    background-color: #262c37;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
 }
 
-/* Accessibility: Screen reader only class */
+/* ---------------------------------------------------------------------------
+   Wallpapers — pure CSS gradients, light + dark variants.
+--------------------------------------------------------------------------- */
+.wallpaper-ridge {
+    background:
+        radial-gradient(120% 90% at 80% 0%, #8fb8f5 0%, transparent 60%),
+        radial-gradient(110% 100% at 15% 100%, #c66fae 0%, transparent 55%),
+        linear-gradient(160deg, #2e5cc5 0%, #6a4fc2 55%, #e0719b 100%);
+}
+
+.dark .wallpaper-ridge {
+    background:
+        radial-gradient(120% 90% at 80% 0%, #1b2c5e 0%, transparent 60%),
+        radial-gradient(110% 100% at 15% 100%, #4a1f4e 0%, transparent 55%),
+        linear-gradient(160deg, #0c1230 0%, #221a4a 55%, #3a1f3f 100%);
+}
+
+.wallpaper-dunes {
+    background:
+        conic-gradient(from 210deg at 70% 110%, #f5a97f 0deg, transparent 140deg),
+        linear-gradient(175deg, #f7c66f 0%, #e58a64 45%, #a84a72 100%);
+}
+
+.dark .wallpaper-dunes {
+    background:
+        conic-gradient(from 210deg at 70% 110%, #5a2e4a 0deg, transparent 140deg),
+        linear-gradient(175deg, #1a1430 0%, #3a1f44 50%, #14101f 100%);
+}
+
+.wallpaper-mono {
+    background: linear-gradient(180deg, #dfe6f2 0%, #b9c6e0 100%);
+}
+
+.dark .wallpaper-mono {
+    background: linear-gradient(180deg, #1a1f2c 0%, #262c37 60%, #11141c 100%);
+}
+
+/* ---------------------------------------------------------------------------
+   Glass — blur only on thin chrome (menubar, dock, popovers), never windows.
+--------------------------------------------------------------------------- */
+@utility glass-bar {
+    background: var(--menubar-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+}
+
+@utility glass-dock {
+    background: var(--dock-bg);
+    backdrop-filter: blur(24px) saturate(160%);
+}
+
+@utility glass-popover {
+    background: var(--popover-bg);
+    backdrop-filter: blur(40px) saturate(180%);
+}
+
+/* Window body material — wallpaper softly visible through the frame. */
+@utility glass-window {
+    background: var(--window-bg);
+    backdrop-filter: blur(28px) saturate(160%);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass-bar,
+    .glass-popover {
+        background: #f2f2f5;
+    }
+
+    .glass-dock {
+        background: rgba(242, 242, 245, 0.92);
+    }
+
+    .glass-window {
+        background: var(--window-bg-opaque);
+    }
+
+    .dark .glass-bar,
+    .dark .glass-popover {
+        background: #2a2c34;
+    }
+
+    .dark .glass-dock {
+        background: rgba(42, 44, 52, 0.92);
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Cursor affordance — Tailwind 4 preflight resets buttons to cursor:default;
+   restore pointer on everything clickable. Utility classes still override.
+--------------------------------------------------------------------------- */
+@layer base {
+    button:not(:disabled),
+    [role="button"],
+    [role="tab"],
+    [role="menuitem"],
+    [role="option"],
+    label[for],
+    summary {
+        cursor: pointer;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Accessibility
+--------------------------------------------------------------------------- */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -43,7 +236,148 @@ body {
     white-space: normal;
 }
 
-/* ... */
+/* ---------------------------------------------------------------------------
+   Keyframes
+--------------------------------------------------------------------------- */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.2s ease-in-out;
+}
+
+@keyframes win-open {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.96);
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes win-close {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(8px) scale(0.92);
+    }
+}
+
+@keyframes win-minimize {
+    to {
+        opacity: 0;
+        transform: translateY(50vh) scale(0.1);
+    }
+}
+
+@keyframes dock-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-14px);
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+
+    80% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes spotlight-in {
+    from {
+        opacity: 0;
+        transform: scale(0.97) translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes menu-in {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes boot-progress {
+    0% {
+        width: 0;
+    }
+
+    70% {
+        width: 82%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes bar-slide-down {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dock-slide-up {
+    from {
+        transform: translateX(-50%) translateY(120%);
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes app-open {
+    from {
+        opacity: 0;
+        transform: scale(0.2);
+        border-radius: 24px;
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        border-radius: 0;
+    }
+}
 
 @keyframes slide-in {
     from {
@@ -59,18 +393,10 @@ body {
     animation: slide-in 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.animate-fade-in {
-    animation: fade-in 0.2s ease-in-out;
+/* A window being dragged or resized must not fight its transition. */
+[data-dragging] {
+    transition: none !important;
+    will-change: transform;
 }
 
 /* Respect user's motion preferences */
@@ -82,9 +408,4 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-}
-
-main {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.121) 5%, transparent 0);
-    background-size: 30px 30px;
 }

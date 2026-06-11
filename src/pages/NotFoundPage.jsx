@@ -2,20 +2,36 @@ import { Link } from 'react-router-dom';
 
 export default function NotFoundPage() {
     return (
-        <section className="py-20 bg-gradient-to-br from-white via-slate-50 to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-500 rounded-2xl min-h-[60vh] flex items-center justify-center">
-            <div className="text-center px-6">
-                <h1 className="text-9xl md:text-[12rem] font-extrabold text-primary/20 mb-4">404</h1>
-                <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Page Not Found</h2>
-                <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 mb-8 max-w-md mx-auto">
-                    Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
-                </p>
-                <Link
-                    to="/"
-                    className="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-colors text-lg"
-                >
-                    Go Back Home
-                </Link>
-            </div>
-        </section>
+        <main className="wallpaper-ridge fixed inset-0 flex items-center justify-center p-6">
+            <section
+                aria-label="Page not found"
+                className="glass-window w-full max-w-md overflow-hidden rounded-xl text-ink shadow-window"
+            >
+                <header className="flex h-10 items-center bg-titlebar px-3 shadow-[inset_0_-0.5px_0_var(--window-divider)]">
+                    <div className="flex items-center gap-2">
+                        <span className="size-[13px] rounded-full bg-light-red" />
+                        <span className="size-[13px] rounded-full bg-light-yellow" />
+                        <span className="size-[13px] rounded-full bg-light-green" />
+                    </div>
+                    <span className="absolute left-1/2 -translate-x-1/2 text-[13px] font-semibold text-ink-2">
+                        Not Found
+                    </span>
+                </header>
+                <div className="flex flex-col items-center gap-4 p-8 text-center">
+                    <h1 className="text-6xl font-extrabold text-primary/30">404</h1>
+                    <h2 className="text-xl font-bold">Page Not Found</h2>
+                    <p className="text-sm text-ink-2">
+                        The page you're looking for doesn't exist. It might have
+                        been moved or deleted.
+                    </p>
+                    <Link
+                        to="/"
+                        className="mt-2 inline-block rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-primary/90"
+                    >
+                        Back to Desktop
+                    </Link>
+                </div>
+            </section>
+        </main>
     );
 }

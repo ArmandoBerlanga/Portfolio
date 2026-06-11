@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <!-- Dark Mode Always Enabled -->
+    <!-- Theme bootstrap: explicit choice from localStorage, otherwise system preference -->
     <script>
-        document.documentElement.classList.add('dark');
+        (function () {
+            var t = localStorage.theme;
+            if (t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches)) {
+                document.documentElement.classList.add("dark");
+            }
+        })();
     </script>
+    <link rel="preload" as="image" href="/me.webp" />
 
     <!-- Primary Meta Tags -->
     <title>Armando Berlanga - Senior Software Engineer | Full-Stack Developer</title>
@@ -84,6 +90,37 @@
 </head>
 <body>
     <div id="root"></div>
+    <noscript>
+        <main style="max-width: 720px; margin: 0 auto; padding: 2rem; font-family: sans-serif;">
+            <h1>Armando Berlanga — Senior Software Engineer</h1>
+            <p>
+                Full-stack developer experienced in .NET, Python, React, and Vue, specializing in
+                scalable cloud solutions on Azure and GCP. Based in Monterrey, Mexico.
+            </p>
+            <h2>Experience</h2>
+            <ul>
+                <li>Senior Software Engineer — Slalom Build (Dec 2024 – Present)</li>
+                <li>Software Engineer — Infosys Mexico (Feb 2024 – Dec 2024)</li>
+                <li>Full Stack Software Developer — KEMET Yageo Company (May 2023 – Feb 2024)</li>
+                <li>Jr. Full Stack Software Developer — HACSYS de México (Jun 2021 – Jun 2023)</li>
+            </ul>
+            <h2>Education</h2>
+            <ul>
+                <li>Engineering in Computer Technologies — Universidad de Monterrey (UDEM)</li>
+            </ul>
+            <h2>Projects</h2>
+            <ul>
+                <li>Prediction of children's IQ using the Human Figure Test (UDEM dissertation)</li>
+            </ul>
+            <h2>Contact</h2>
+            <ul>
+                <li><a href="mailto:armandoberlanga2708@gmail.com">armandoberlanga2708@gmail.com</a></li>
+                <li><a href="https://github.com/ArmandoBerlanga">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/armandoberlanga">LinkedIn</a></li>
+                <li><a href="/resume.pdf">Resume (PDF)</a></li>
+            </ul>
+        </main>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
