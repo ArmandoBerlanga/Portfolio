@@ -1,4 +1,4 @@
-import { APPS } from "./apps";
+import { VISIBLE_APPS } from "./apps";
 import { projects } from "../config/projects";
 import { jobs } from "../config/experience";
 import { education } from "../config/education";
@@ -6,7 +6,7 @@ import { certsTypes } from "../config/certifications";
 import { formatRange } from "../utils/dates";
 
 const entries = [
-    ...APPS.map((app) => ({
+    ...VISIBLE_APPS.map((app) => ({
         type: "App",
         title: app.title,
         subtitle: "Application",

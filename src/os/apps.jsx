@@ -87,7 +87,22 @@ export const APPS = [
         minSize: { w: 380, h: 260 },
         keywords: ["shell", "console", "cli", "command", "neofetch"],
     },
+    {
+        // Hidden: not in the dock/spotlight — opened by clicking a desktop file.
+        id: "preview",
+        title: "Preview",
+        hidden: true,
+        icon: TerminalIcon,
+        load: () => import("./apps/PreviewApp"),
+        Component: lazy(() => import("./apps/PreviewApp")),
+        defaultBounds: { x: 200, y: 70, w: 760, h: 640 },
+        minSize: { w: 360, h: 320 },
+        keywords: [],
+    },
 ];
+
+// Apps surfaced in the dock, spotlight, and springboard (excludes Preview).
+export const VISIBLE_APPS = APPS.filter((app) => !app.hidden);
 
 // Warm every app chunk once the desktop is idle so windows open with
 // their content already in memory.

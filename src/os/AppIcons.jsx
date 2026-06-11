@@ -148,6 +148,57 @@ export function ResumeIcon(props) {
     );
 }
 
+const EXT_COLOR = {
+    pdf: "#ff5f57",
+    image: "#28c840",
+    text: "#5b86e5",
+    binary: "#8a8f98",
+};
+
+// A paper-sheet document icon with a folded corner and a colored extension
+// tab — kind drives the accent so any file type reads at a glance.
+export function FileIcon({ name = "file", kind = "binary", ...props }) {
+    const ext = name.includes(".") ? name.split(".").pop().toUpperCase() : "";
+    const accent = EXT_COLOR[kind] ?? EXT_COLOR.binary;
+    return (
+        <svg viewBox="0 0 100 100" aria-hidden="true" {...props}>
+            <defs>
+                <linearGradient id={`file-${kind}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="100%" stopColor="#e8e8ec" />
+                </linearGradient>
+            </defs>
+            {/* sheet */}
+            <path
+                d="M24 8 H62 L80 26 V88 a4 4 0 0 1 -4 4 H24 a4 4 0 0 1 -4 -4 V12 a4 4 0 0 1 4 -4 Z"
+                fill={`url(#file-${kind})`}
+                stroke="rgba(0,0,0,0.12)"
+                strokeWidth="1.5"
+            />
+            {/* folded corner */}
+            <path d="M62 8 V26 H80 Z" fill="#cfd0d6" />
+            {/* extension tab */}
+            <rect x="20" y="52" width="46" height="20" rx="4" fill={accent} />
+            <text
+                x="43"
+                y="67"
+                textAnchor="middle"
+                fontSize="13"
+                fontWeight="700"
+                fill="#fff"
+                fontFamily="inherit"
+            >
+                {ext}
+            </text>
+        </svg>
+    );
+}
+
+FileIcon.propTypes = {
+    name: PropTypes.string,
+    kind: PropTypes.string,
+};
+
 export function MonogramIcon(props) {
     return (
         <Squircle id="monogram" from="#6fb5f7" to="#2e5cc5" {...props}>

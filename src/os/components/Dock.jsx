@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { APPS } from "../apps";
+import { VISIBLE_APPS } from "../apps";
 import { ResumeIcon } from "../AppIcons";
 import { useWindowManager, useWindowActions } from "../WindowManagerContext";
 
@@ -92,7 +92,7 @@ export default function Dock() {
             className="fixed bottom-2 left-1/2 z-[600] -translate-x-1/2"
         >
             <div className="glass-dock flex items-end gap-2 rounded-[22px] border border-(--dock-border) p-2 shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
-                {APPS.map((app) => (
+                {VISIBLE_APPS.map((app) => (
                     <DockItem
                         key={app.id}
                         id={app.id}

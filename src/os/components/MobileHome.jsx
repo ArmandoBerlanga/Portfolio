@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { APPS, APP_BY_ID } from "../apps";
+import { VISIBLE_APPS, APP_BY_ID } from "../apps";
 import { ResumeIcon } from "../AppIcons";
 import StatusBar from "./StatusBar";
 import MobileApp from "./MobileApp";
@@ -40,7 +40,7 @@ export default function MobileHome() {
 
     useHashSync({ onOpenApp: setActiveAppId, focusedId: activeAppId });
 
-    const gridApps = APPS.filter((app) => !FAVORITES.includes(app.id));
+    const gridApps = VISIBLE_APPS.filter((app) => !FAVORITES.includes(app.id));
     const favoriteApps = FAVORITES.map((id) => APP_BY_ID[id]);
 
     return (
