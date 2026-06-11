@@ -5,6 +5,7 @@ import {
     ContactIcon,
     EducationIcon,
     ExperienceIcon,
+    PreviewIcon,
     ProjectsIcon,
     TerminalIcon,
 } from "./AppIcons";
@@ -88,11 +89,12 @@ export const APPS = [
         keywords: ["shell", "console", "cli", "command", "neofetch"],
     },
     {
-        // Hidden: not in the dock/spotlight — opened by clicking a desktop file.
+        // Hidden: not pinned in the dock/spotlight — opened by clicking a
+        // desktop file; appears in the dock while running, like macOS.
         id: "preview",
         title: "Preview",
         hidden: true,
-        icon: TerminalIcon,
+        icon: PreviewIcon,
         load: () => import("./apps/PreviewApp"),
         Component: lazy(() => import("./apps/PreviewApp")),
         defaultBounds: { x: 200, y: 70, w: 760, h: 640 },

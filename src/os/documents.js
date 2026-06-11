@@ -2,6 +2,7 @@
 // support automatically — kind/size are derived, so any file type works.
 export const DOCUMENTS = [
     { name: "resume.pdf", src: "/resume.pdf" },
+    { name: "hometown_MTY.png", src: "/hometown.webp" },
 ];
 
 const KIND_BY_EXT = {

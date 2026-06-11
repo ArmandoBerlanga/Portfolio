@@ -148,6 +148,19 @@ export function ResumeIcon(props) {
     );
 }
 
+export function PreviewIcon(props) {
+    return (
+        <Squircle id="preview" from="#9bb7e8" to="#4a6fb8" {...props}>
+            {/* photo + loupe, Preview-style */}
+            <rect x="24" y="26" width="52" height="40" rx="5" {...glyph} strokeWidth="4.5" />
+            <path d="M24 58 38 46 50 56 60 48 76 60" {...glyph} strokeWidth="4" />
+            <circle cx="38" cy="37" r="3.5" fill="#fff" stroke="none" />
+            <circle cx="62" cy="66" r="11" {...glyph} strokeWidth="4.5" fill="rgba(255,255,255,0.15)" />
+            <path d="M70 74 78 82" {...glyph} strokeWidth="5" />
+        </Squircle>
+    );
+}
+
 const EXT_COLOR = {
     pdf: "#ff5f57",
     image: "#28c840",

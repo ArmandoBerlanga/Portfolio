@@ -99,14 +99,26 @@ function DesktopInner() {
                         onDoubleClick={() => openDocument(doc)}
                         onClick={() => openDocument(doc)}
                         title={`Open ${doc.name}`}
-                        className="group flex w-20 flex-col items-center gap-1 rounded-lg p-2 outline-none transition-colors duration-150 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/80"
+                        className="group flex w-24 flex-col items-center gap-1 rounded-lg p-2 outline-none transition-colors duration-150 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/80"
                     >
-                        <FileIcon
-                            name={doc.name}
-                            kind={fileKind(doc.name)}
-                            className="size-12 drop-shadow-lg transition-transform duration-200 group-hover:scale-105"
-                        />
-                        <span className="max-w-full truncate rounded px-1 text-[11px] font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+                        {fileKind(doc.name) === "image" ? (
+                            // Images show their own thumbnail, like Finder.
+                            <img
+                                src={doc.src}
+                                alt=""
+                                loading="lazy"
+                                width="48"
+                                height="48"
+                                className="size-12 rounded-md border-2 border-white/85 object-cover shadow-lg transition-transform duration-200 group-hover:scale-105"
+                            />
+                        ) : (
+                            <FileIcon
+                                name={doc.name}
+                                kind={fileKind(doc.name)}
+                                className="size-12 drop-shadow-lg transition-transform duration-200 group-hover:scale-105"
+                            />
+                        )}
+                        <span className="line-clamp-2 max-w-full break-all rounded px-1 text-center text-[11px] font-medium leading-tight text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                             {doc.name}
                         </span>
                     </button>

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { VISIBLE_APPS } from "../apps";
+import { APPS, VISIBLE_APPS } from "../apps";
 import { ResumeIcon } from "../AppIcons";
 import { useWindowManager, useWindowActions } from "../WindowManagerContext";
 
@@ -78,6 +78,34 @@ export default function Dock() {
     const { openApp } = useWindowActions();
     const [bouncingId, setBouncingId] = useState(null);
 
+    // Hidden apps (e.g. Preview) join the dock while running. Closed ones
+    // stay mounted with `leaving` until their collapse animation finishes.
+    const [transient, setTransient] = useState([]);
+
+    useEffect(() => {
+        setTransient((prev) => {
+            const next = prev.map((t) =>
+                windows[t.app.id]
+                    ? { app: t.app, leaving: false }
+                    : { ...t, leaving: true },
+            );
+            for (const app of APPS) {
+                if (
+                    app.hidden &&
+                    windows[app.id] &&
+                    !next.some((t) => t.app.id === app.id)
+                ) {
+                    next.push({ app, leaving: false });
+                }
+            }
+            return next;
+        });
+    }, [windows]);
+
+    function removeTransient(appId) {
+        setTransient((prev) => prev.filter((t) => t.app.id !== appId));
+    }
+
     function launch(appId) {
         if (!windows[appId]) {
             setBouncingId(appId);
@@ -102,6 +130,30 @@ export default function Dock() {
                         bouncing={bouncingId === app.id}
                         onClick={() => launch(app.id)}
                     />
+                ))}
+                {transient.map(({ app, leaving }) => (
+                    <div
+                        key={app.id}
+                        style={{ transformOrigin: "bottom center" }}
+                        onAnimationEnd={(e) => {
+                            if (leaving && e.target === e.currentTarget) {
+                                removeTransient(app.id);
+                            }
+                        }}
+                        className={
+                            leaving
+                                ? "overflow-hidden motion-safe:animate-[dock-item-out_220ms_var(--ease-mac-exit)_forwards]"
+                                : "motion-safe:animate-[dock-item-in_280ms_var(--ease-mac-spring)]"
+                        }
+                    >
+                        <DockItem
+                            id={app.id}
+                            label={app.title}
+                            icon={app.icon}
+                            running={!leaving}
+                            onClick={() => openApp(app.id)}
+                        />
+                    </div>
                 ))}
                 <div
                     aria-hidden="true"
