@@ -30,6 +30,9 @@ const EXTRA_STACK = [
     { name: "Cloudflare", years: 3 },
     { name: "CI/CD", years: 2 },
     { name: "MongoDB", years: 1 },
+    { name: "GitHub Copilot", years: 4 },
+    { name: "Claude Code", years: 1 },
+    { name: "Cursor", years: 1 },
 ];
 
 const SOFT_SKILLS = [

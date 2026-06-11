@@ -1,7 +1,7 @@
 export const education = [
     {
         institution: 'Universidad de Monterrey',
-        degree: 'Computer Science, Engineering',
+        degree: 'Engineering in Computer Technologies | GPA 9.72/10',
         startDate: '2019-08',
         endDate: '2023-12',
         image: 'education/udem.webp',
@@ -9,7 +9,7 @@ export const education = [
     },
     {
         institution: 'Universidad Francisco de Vitoria',
-        degree: 'Exchnage, Computer Science',
+        degree: 'Exchange, Computer Science',
         startDate: '2022-09',
         endDate: '2023-01',
         image: 'education/ufv.webp',

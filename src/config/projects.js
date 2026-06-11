@@ -10,9 +10,9 @@ export const projects = [
             "projects/hft3.webp"
         ],
         skills: [
-            ".NET", "APIs", "VueJS", "Python", "PyTorch", "Onnx",
-            "Docker", "Web Sockets", "OWASP", "Cloudflare",
-            "GCP", "SQL Server", "Terraform", "GitHub", "GitHub Actions"
+            ".NET", "APIs", "VueJS", "Quasar", "Python", "PyTorch", "Onnx",
+            "YOLOv8", "SignalR", "JWT", "Docker", "Web Sockets", "OWASP",
+            "Cloudflare", "GCP", "SQL Server", "Terraform", "GitHub", "GitHub Actions"
         ]
     },
     {

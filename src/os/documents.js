@@ -1,7 +1,7 @@
 // Files that live on the desktop. Add an entry and it gets an icon + Preview
 // support automatically — kind/size are derived, so any file type works.
 export const DOCUMENTS = [
-    { name: "resume.pdf", src: "/resume.pdf" },
+    { name: "resume.pdf", src: "/resume.pdf?v=2" },
     { name: "hometown_MTY.png", src: "/hometown.webp" },
 ];
 
