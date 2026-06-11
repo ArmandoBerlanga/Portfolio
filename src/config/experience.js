@@ -6,7 +6,7 @@ export const jobs = [
         location: 'Monterrey, Nuevo León, México',
         startDate: '2024-12',
         endDate: 'Present',
-        description: 'Designed and developed full-stack applications using .NET 8, Blazor, and Azure for the energy sector, improving system performance, scalability, and user experience. Built and deployed AI-powered RESTful APIs using Python (FastAPI) on GCP — leveraging BigQuery, Cloud Run, IAM, Cloud Storage, Secret Manager, Parameter Manager, Apigee, Vertex AI, Tekton pipelines, and MongoDB — to deliver secure, scalable cloud solutions for the automotive industry. Accelerated delivery with AI tooling (GitHub Copilot, Claude Code, Codex, OpenCode, Cursor) and engaged in full Scrum lifecycle activities, from daily stand-ups to pull request reviews.',
+        description: 'Built and deployed AI-powered RESTful APIs using Python (FastAPI) on GCP — leveraging BigQuery, Cloud Run, IAM, Cloud Storage, Secret Manager, Parameter Manager, Apigee, Vertex AI, Tekton pipelines, and MongoDB — to deliver secure, scalable cloud solutions for the automotive industry. Designed and developed full-stack applications using .NET 8, Blazor, and Azure for the energy sector, improving system performance, scalability, and user experience. Accelerated delivery with AI tooling (GitHub Copilot, Claude Code, Codex, OpenCode, Cursor) and engaged in full Scrum lifecycle activities, from daily stand-ups to pull request reviews.',
         technologies: ['Python', 'FastAPI', 'GCP', 'BigQuery', 'Vertex AI', 'Apigee', 'AI Integration', 'Tekton', 'MongoDB', '.NET 8', 'Blazor', 'Azure', 'SOLID Principles', 'Scrum', 'CI/CD']
     },
     {
